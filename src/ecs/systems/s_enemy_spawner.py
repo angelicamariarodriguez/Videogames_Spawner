@@ -12,13 +12,11 @@ def system_enemy_spawner(world:esper.World, conf_enemies:str):
 
     for entity, (c_s) in components:
         
-        #now = pygame.time.get_ticks() / 1000.0
         
-
         for event in c_s[0].events:
 
 
-            now = (pygame.time.get_ticks() / 1000.0)
+            now = pygame.time.get_ticks() / 1000.0
             enemy_name = event[1]
             enemy_pos_x = event[2]['x']
             enemy_pos_y = event[2]['y']
@@ -27,5 +25,4 @@ def system_enemy_spawner(world:esper.World, conf_enemies:str):
                 event[3] = True
                 print(now)
                 print(enemy_name)
-                print('shown')
                 create_cuad(world, conf_enemies, enemy_name, pygame.Vector2(enemy_pos_x,enemy_pos_y))
