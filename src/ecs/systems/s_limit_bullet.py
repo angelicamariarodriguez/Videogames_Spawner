@@ -13,7 +13,7 @@ def system_limit_bullet(world: esper.World, screen:pygame.Surface):
 
     for bullet_entity, (c_t, c_s, _) in components:
 
-        bullet_rect = c_s.surf.get_rect(topleft=c_t.pos)
+        bullet_rect = CSurface.get_area_relative(c_s.area, c_t.pos)
 
         if bullet_rect.left < 0 or bullet_rect.right > screen_rect.width or bullet_rect.top < 0 or bullet_rect.bottom > screen_rect.height:
             world.delete_entity(bullet_entity)

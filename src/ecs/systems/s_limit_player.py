@@ -10,7 +10,7 @@ def system_limit_player(world: esper.World, player_entity:int, screen:pygame.Sur
 
     pl_t = world.component_for_entity(player_entity, CTransform)
     pl_s = world.component_for_entity(player_entity, CSurface)
-    pl_rect = pl_s.surf.get_rect(topleft = pl_t.pos)
+    pl_rect = CSurface.get_area_relative(pl_s.area, pl_t.pos)
 
     screen_rect = screen.get_rect()
     if pl_rect.left < 0 or pl_rect.right > screen_rect.width:
