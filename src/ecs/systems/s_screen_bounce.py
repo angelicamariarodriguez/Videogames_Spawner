@@ -18,6 +18,10 @@ def system_screen_bounce(world:esper.World, screen:pygame.Surface):
     c_e:CTagEnemy
 
     for _, (c_t, c_v, c_s, c_e) in components:
+        
+        if c_e.enemy_type == "Hunter":
+            continue
+
         cuad_rect =CSurface.get_area_relative(c_s.area, c_t.pos)
         if cuad_rect.left < 0 or cuad_rect.right > screen_rect.width:
             c_v.vel.x *= -1
